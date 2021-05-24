@@ -1,3 +1,4 @@
+
 # Funciones [Python]
 # Ejercicios de práctica
 
@@ -12,7 +13,9 @@
 # --------------------------------
 # Aquí dentro definir la función ordenar
 #def ordenar (numeros):
-
+def ordenar(numeros):
+    numeros.sort(reverse = True)
+    return numeros
 
 # --------------------------------
 
@@ -40,8 +43,9 @@ if __name__ == '__main__':
 
     # lista_ordenada = ordenar(numeros)
 
-
+    lista_ordenada = ordenar(numeros)
+    
     # Imprimir en pantalla "lista_ordenada" que tendrá
     # los valores retornado por la función ordenar:
-
+    print("lista_ordenada", lista_ordenada)
     print("terminamos")
