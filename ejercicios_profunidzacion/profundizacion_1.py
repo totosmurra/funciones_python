@@ -67,11 +67,102 @@ guardados" tenga "generala", es decir, 5 números iguales.
 '''
 
 import random
+lista_temporal = []
+lista_temporal_2 = []
+lista_temporal_3 = []
 
+
+lista_de_1 = []
+lista_de_2 = []
+lista_de_3 = []
+lista_de_4 = []
+lista_de_5 = []
+lista_de_6 = []
+
+
+lista_para_guardar = []
+lista_guardada = []
+
+
+dados_a_tirar = 0
 # --------------------------------
 # Dentro de esta sección copiar y crear
 # todas las funciones que utilice
+def primera_tirada():
+   
+    for i in range(5):
+        
+        numrand = random.randrange(1, 7)
+        
+       
+        lista_temporal.append(numrand)
 
+    for x in lista_temporal:
+        if x == 1:
+            lista_de_1.append(x)
+        elif x == 2:
+            lista_de_2.append(x)
+        elif x == 3:
+            lista_de_3.append(x)
+        elif x == 4:
+            lista_de_4.append(x)
+        elif x == 5:
+            lista_de_5.append(x)
+        elif x == 6:
+            lista_de_6.append(x)
+
+    print("1=", lista_de_1)
+    print("2=", lista_de_2)
+    print("3=", lista_de_3)
+    print("4=", lista_de_4)
+    print("5=", lista_de_5)
+    print("6=", lista_de_6)
+    
+    lista_para_guardar = max(lista_de_1, lista_de_2, lista_de_3, lista_de_4, lista_de_5, lista_de_6, key=len)
+
+    for i in lista_para_guardar:
+        lista_guardada.append(i)
+
+
+    return lista_guardada
+
+def segunda_tirada():  
+    
+    dados_a_tirar = 5 - (len(lista_guardada))
+    print("Dados a tirar", dados_a_tirar)
+
+    for i in range(dados_a_tirar):
+
+        numrand = random.randrange(1, 7)
+        
+        lista_temporal_2.append(numrand)
+
+    print("En tu segundo tiro salio esto", lista_temporal_2)
+    
+    for i in lista_temporal_2:
+        if i == num_necesitado:
+            lista_guardada.append(i)
+    
+    return lista_guardada
+
+def tercera_tirada():
+        
+    dados_a_tirar = 5 - (len(lista_guardada))
+    print("Dados a tirar", dados_a_tirar)
+
+    for i in range(dados_a_tirar):
+
+        numrand = random.randrange(1, 7)
+        
+        lista_temporal_3.append(numrand)
+
+    print("En tu tercer tiro salio esto", lista_temporal_3)
+    
+    for i in lista_temporal_3:
+        if i == num_necesitado:
+            lista_guardada.append(i)
+    
+    return lista_guardada
 
 # --------------------------------
 
@@ -80,3 +171,33 @@ if __name__ == '__main__':
     # A partir de aquí escriba el código que
     # invoca al as funciones y resuelve el enunciado
     # Leer el enunciado con atención y consultar cualquier duda
+    print("Este es el resultado de tu primer tiro")
+    primera_tirada()
+    print("Te quedaste con estos dados")
+    print (lista_guardada)
+    
+    num_necesitado = lista_guardada[0]
+    print("Necesitas este numero", num_necesitado)
+
+    if len(lista_guardada) == 5:
+        print ("Ganaste en un tiro!!!")
+   
+    else:
+        print("Vamos con el segundo tiro")
+        segunda_tirada()
+        print("Te quedaste con estos dados")
+        print(lista_guardada)
+
+        if len(lista_guardada) == 5:
+            print("Hiciste la generala en tu segundo tiro!")
+       
+        else:
+            tercera_tirada()
+            print("Te quedaste con estos dados")
+            print(lista_guardada)
+            if len(lista_guardada) == 5:
+                print("Hiciste la generala en tu tercer tiro!")
+            
+            else:
+                print("No salio generala")
+                print("Perdiste :(")
